@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  title: Programacion Distribuida
+  description: API REST para crear, modificar, eliminar y listar autores.
+  version: 1.0.0
+
+paths:
+
+  /authors/{id}:
+
+    get:
+      summary: Retorna un Autor Especifico de la Base de Datos
+      responses:
+        '204':
+          description: OK
+
+    put:
+      summary: Modifica un Autor Especifico de la Base de Datos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+      responses:
+        '204':
+          description: OK
+    delete:
+      summary: Elimina un Autor Especifico de la Base de Datos
+      responses:
+        '204':
+          description: OK
+  /authors:
+    get:
+      summary: Retorna Todos los Autores de la Base de Datos
+      responses:
+        '204':
+          description: OK
+
+    post:
+      summary: Crea un Nuevo Autor en la Base de Datos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Error
